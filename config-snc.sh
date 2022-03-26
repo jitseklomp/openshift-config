@@ -99,7 +99,7 @@ function setup_pv_dirs() {
     if ! chcon -R -t svirt_sandbox_file_t "${dir}" &> /dev/null; then
         echo "Failed to set SELinux context on ${dir}"
     fi
-    chmod -R 770 ${dir}
+    chmod -R 777 ${dir}
 EOF
 }
 
