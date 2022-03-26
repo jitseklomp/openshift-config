@@ -99,7 +99,7 @@ function setup_pv_dirs() {
     if ! chcon -R -t svirt_sandbox_file_t "${dir}" &> /dev/null; then
         echo "Failed to set SELinux context on ${dir}"
     fi
-    chmod -R 770 ${dir}
+    chmod -R 777 ${dir}
 EOF
 }
 
@@ -137,7 +137,7 @@ command.help() {
       config-snc.sh all -h 192.168.2.23
   
   COMMANDS:
-      persistant-volumes             Setup 30 persistant volumes on SNC host
+      persistent-volumes             Setup 30 persistent volumes on SNC host
       registry                       Setup internal image registry to use a PVC and accept requests
       operators                      Install gitops and pipeline operators
       ci                             Install Nexus and Gogs in a ci namespace
@@ -272,7 +272,7 @@ command.create-users() {
 
 
 command.all() {
-    command.persistant-volumes
+    command.persistent-volumes
     command.registry
     command.create-users
     command.operators
